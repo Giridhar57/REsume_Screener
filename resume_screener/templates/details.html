@@ -18,8 +18,11 @@
         <li class="list-group-item"><b>GitHub Info:</b>
         <h6>Valid Repositories: {{data.github_info.valid_repos}}</h6>
         <h6>Repositories: </h6>
-        {%for i in data.github_info.git_info%}
-            <span class="skills">{{i}}</span>
+        {%for i in github_data%}
+            {%for j in i%}
+            <h6>{{j}}</h6>
+            {%endfor%}
+            <br>
         {%endfor%}
         {%endif%}
     </li>
