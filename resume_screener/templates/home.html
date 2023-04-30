@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+<h1>Welcome to Resume Screener</h1>
+<div class="list-group mx-auto" style="max-width: 540px;">
+    <ul class="list-group">
+        <li class="list-group-item active" aria-current="true" style="text-align:center;"><b>Applied Candidates</b></li>
+        {%for i in data%}
+        <li class="list-group-item"><a href="{%url 'details' i.slno%}" style="text-decoration: none;"><b>{{i.slno}}</b> {{i.name}}</a></li>
+        {%endfor%}
+      </ul>
+</div>
+{%endblock%}

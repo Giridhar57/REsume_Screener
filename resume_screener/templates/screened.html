@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{% block content%}
+<div class="text-center fs-4 fw-bold" style="padding: 10px;">
+  Screened Results
+</div>
+<div><b>Job Description</b> {{job_description}}</div>
+<div class="card text-dark bg-light mb-3">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Ranks</th>
+            <th scope="col">Name</th>
+            <th scope="col">Score</th>
+            <th scope="col">Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for i in temp%}
+            <tr>
+              <td>{{i.count}}</td>
+              <td>{{i.name}}</td>
+              <td>{{i.score}}</td>
+              <td><a href="{%url 'details' i.rank%}">View</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+  </div>
+{%endblock%}

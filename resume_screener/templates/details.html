@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+<div>
+  <a href="{% url 'screened'%}">Back</a>
+</div>
+<div class="card mb-3 mx-auto" style="max-width: 85%;">
+    <div class="card-header">
+      <b>{{data.name}}</b>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Email:</b> {{data.email}}</li>
+      <li class="list-group-item"><b>CGPA:</b> {{data.cgpa}}</li>
+      <li class="list-group-item"><b>Has Experience:</b> {{data.experience}}</li>
+      <li class="list-group-item"><b>Has Certifications:</b> {{data.certifications}}</li>
+      <li class="list-group-item"><b>Skills:</b> <div>{%for i in data.skills%}<span class="skills">{{i}}</span>{%endfor%}</div></li>
+        {%if data.github_info%}
+        <li class="list-group-item"><b>GitHub Info:</b>
+        <h6>Valid Repositories: {{data.github_info.valid_repos}}</h6>
+        <h6>Repositories: </h6>
+        {%for i in data.github_info.git_info%}
+            <span class="skills">{{i}}</span>
+        {%endfor%}
+        {%endif%}
+    </li>
+      <li class="list-group-item">
+        {%if data.linkedin_info%}
+        <b>LinkedIn Info:</b>
+        <h6>Total Experience: {{data.linkedin_info.total_experience}}</h6>
+        {%for i in data.linkedin_info.experience%}
+            {%for j in i%}
+            <h6>{{j}}</h6>
+            {%endfor%}
+            <br>
+        {%endfor%}
+
+        {%endif%}
+      </li>
+    </ul>
+    
+  </div>
+{%endblock%}

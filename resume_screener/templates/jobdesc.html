@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="container py-5" style="border:1px solid black; border-radius: 25px">
+	<h1>Job Description</h1>
+	<form method="POST" action="{% url 'jobdesc' %}">
+		{% csrf_token %}
+		<fieldset class="border-bottom mb-4">
+			{{ form|crispy }} 
+		</fieldset>
+		<div class="form-group">
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</div>
+	</form>
+</div>
+<a href="{%url 'home'%}">Home</a>
+{%endblock%}
