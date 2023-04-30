@@ -75,6 +75,22 @@ def screened(request):
     return render(request,'screened.html',context={'temp':temp,'job_description':job_description})
 
 def details(request,id):
-    data=info[int(id)]
+    data=res[int(id)-1]
+    github_data=[]
+    temp3=1
+    if(data['github_info']):
+        for i in data['github_info']['git_info']:
+            temp=[]
+            temp.append(f'{temp3}. {i}')
+            temp3+=1
+            if(data['github_info']['git_info'][i]['lang']):
+                temp2=[]
+                for j in data['github_info']['git_info'][i]['lang']:
+                    temp2.append(' - '.join(j.split('\n')))
+                temp.append("Languages Used: "+", ".join(temp2))
+                temp.append("Forks: "+data['github_info']['git_info'][i]['forks'])
+            github_data.append(temp)
+
+        print("hello")
     name=res[int(id)-1]['name']
-    return render(request,'details.html',context={'data':res[int(id)-1],'title':name})
+    return render(request,'details.html',context={'data':res[int(id)-1],'title':name,'github_data':github_data})
