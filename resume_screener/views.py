@@ -32,59 +32,6 @@ def getJobDescription(request):
         return redirect(screened)
     return render(request,'jobdesc.html',{'form':JobDescription})
 
-# temp1=[]
-# temp3=1
-# print("Enter the skill set the candidate need to pocess:")
-# while(True):
-#     y=input(f"{temp3}:")
-#     if y!='':
-#         temp1.append(y)
-#         temp3+=1
-#     elif y=="":
-#         break
-# job_description['required_skills']=temp1
-# temp4=input("The minimum required CGPA(0-10): ")
-# if temp4:
-#     job_description['min_cgpa']=float(temp4)
-# else:
-#     job_description['min_cgpa']=6.0
-# temp2=input("Does candidate needs experience?(Yes/No): ")
-# if temp2:
-#     job_description['exp_required']=temp2
-# else:
-#     job_description['exp_required']="No"
-# temp5=input("How many candidates to be short listed: ")
-# if temp5:
-#     job_description['required_cand_count']=int(temp5)
-# else:
-#     job_description['required_cand_count']=5
-
-#parser.__init__()
-# names=[]
-# ids=[]
-# temp=1
-# info={}
-# for i in query:
-#     info[temp]=i
-#     temp+=1
-# ranks=results.__init__(info,job_description)['ranks']
-# scores=results.__init__(info,job_description)['final_scores']
-# scores.sort()
-# for i in ranks:
-#     names.append(info[i]['name'])
-#     ids.append(info[i]['_id'])
-# res=[]
-# for i in info:
-#     res.append(info[i])
-# for j in range(len(res)):
-#     temp5=[]
-#     for k in range(len(res[j]['skills'])):
-#         res[j]['skills'][k]=res[j]['skills'][k].title()
-#     if res[j]['linkedin_info']:
-#             for i in res[j]['linkedin_info']['experience']:
-#                 temp5.append(res[j]['linkedin_info']['experience'][i])
-#             res[j]['linkedin_info']['experience']=temp5
-
 names=[]
 ids=[]
 res=[]
